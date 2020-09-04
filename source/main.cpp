@@ -10,6 +10,12 @@
 #include <unistd.h>
 #endif
 
+#ifdef __APPLE__
+#define OPEN_COMMAND "open"
+#elif defined(__linux__)
+#define OPEN_COMMAND "xdg-open"
+#endif
+
 LUA_FUNCTION(open_url)
 {
 	const bool has_url = LUA->Top() > 0;
@@ -25,17 +31,14 @@ LUA_FUNCTION(open_url)
 // windows
 #ifdef _WIN32
 	ShellExecute(0, 0, url.c_str(), 0, 0, SW_SHOW);
-#endif 
+#endif
 
 // linux & macos
 #if defined(__APPLE__) || defined(__linux__)
 	pid_t pid = fork();
+	// Are we the child?
 	if (pid == 0) {
-#ifdef __APPLE__
-		execl("/usr/bin/open", "open", url.c_str(), (char*)0);
-#elif defined(__linux__)
-		execl("/usr/bin/xdg-open", "xdg-open", url.c_str(), (char*)0);
-#endif
+		execlp(OPEN_COMMAND, OPEN_COMMAND, url.c_str(), NULL);
 		exit(1);
 	}
 #endif

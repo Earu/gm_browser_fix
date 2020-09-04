@@ -6,7 +6,8 @@
 #endif
 
 #if __unix__
-#include <iostream>
+#include <sys/types.h>
+#include <unistd.h>
 #endif
 
 LUA_FUNCTION(open_url)
@@ -28,13 +29,15 @@ LUA_FUNCTION(open_url)
 
 // linux & macos
 #if defined(__APPLE__) || defined(__linux__)
+	pid_t pid = fork();
+	if (pid == 0) {
 #ifdef __APPLE__
-	std::string cmd("open ");
+		execl("/usr/bin/open", "open", url.c_str(), (char*)0);
 #elif defined(__linux__)
-	std::string cmd("xdg-open ");
+		execl("/usr/bin/xdg-open", "xdg-open", url.c_str(), (char*)0);
 #endif
-	cmd.append(url);
-	system(cmd.c_str());
+		exit(1);
+	}
 #endif
 
 	return 0;

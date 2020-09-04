@@ -1,0 +1,8 @@
+﻿  main.cpp
+C:\Users\Earu\Documents\GitHub\gm_browser_fix\source\main.cpp(50,1): warning C4100: 'LUA': unreferenced formal parameter
+     Creating library x86\Release\gmcl_browser_fix_win32.lib and object x86\Release\gmcl_browser_fix_win32.exp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 104 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  gmcl_browser_fix.vcxproj -> C:\Users\Earu\Documents\GitHub\gm_browser_fix\projects\windows\vs2019\x86\Release\gmcl_browser_fix_win32.dll

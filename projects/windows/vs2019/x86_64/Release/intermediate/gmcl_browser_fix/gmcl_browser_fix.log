@@ -1,9 +1,0 @@
-﻿  main.cpp
-C:\Users\Earu\Documents\GitHub\gm_browser_fix\source\main.cpp(50,1): warning C4100: 'LUA': unreferenced formal parameter
-     Creating library x86_64\Release\gmcl_browser_fix_win64.lib and object x86_64\Release\gmcl_browser_fix_win64.exp
-  Generating code
-  102 of 104 functions (98.1%) were compiled, the rest were copied from previous compilation.
-    98 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  gmcl_browser_fix.vcxproj -> C:\Users\Earu\Documents\GitHub\gm_browser_fix\projects\windows\vs2019\x86_64\Release\gmcl_browser_fix_win64.dll

@@ -27,8 +27,12 @@ LUA_FUNCTION(open_url)
 #endif
 
 // linux & macos
-#if __unix__
+#if defined(__APPLE__) || defined(__linux__)
+#ifdef __APPLE__
 	std::string cmd("open ");
+#elif defined(__linux__)
+	std::string cmd("xdg-open ");
+#endif
 	cmd.append(url);
 	system(cmd.c_str());
 #endif

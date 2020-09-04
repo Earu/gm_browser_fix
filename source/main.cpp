@@ -50,8 +50,13 @@ GMOD_MODULE_OPEN()
 {
 	LUA->PushSpecial(GarrysMod::Lua::SPECIAL_GLOB);
 	LUA->GetField(-1, "gui");
+
+	LUA->GetField(-1, "OpenURL");
+	LUA->SetField(-2, "__OpenURL");
+
 	LUA->PushCFunction(open_url);
 	LUA->SetField(-2, "OpenURL");
+
 	LUA->Pop();
 
 	return 0;
@@ -59,5 +64,12 @@ GMOD_MODULE_OPEN()
 
 GMOD_MODULE_CLOSE()
 {
+	LUA->PushSpecial(GarrysMod::Lua::SPECIAL_GLOB);
+	LUA->GetField(-1, "gui");
+
+	LUA->GetField(-1, "__OpenURL");
+	LUA->SetField(-2, "OpenURL");
+
+	LUA->Pop();
 	return 0;
 }

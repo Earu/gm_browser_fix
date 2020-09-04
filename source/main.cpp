@@ -18,7 +18,7 @@ LUA_FUNCTION(open_url)
 	std::string url(input);
 
 	// fix protocol if it isnt there
-	if (url.rfind("http://", 0) != 0 || url.rfind("https://", 0) != 0)
+	if (!(url.find("http://") == 0 || url.find("https://") == 0))
 		url = "https://" + url;
 
 // windows

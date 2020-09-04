@@ -25,7 +25,7 @@ LUA_FUNCTION(open_url)
 // windows
 #ifdef _WIN32
 	ShellExecute(0, 0, url.c_str(), 0, 0, SW_SHOW);
-#endif
+#endif 
 
 // linux & macos
 #if defined(__APPLE__) || defined(__linux__)

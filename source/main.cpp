@@ -5,7 +5,7 @@
 #include <windows.h>
 #endif
 
-#if __unix__
+#if defined(__APPLE__) || defined(__linux__)
 #include <sys/types.h>
 #include <unistd.h>
 #endif

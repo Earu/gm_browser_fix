@@ -3,3 +3,5 @@
 /projects/windows/vs2019/x86/Debug
 /projects/windows/vs2019/x86/Release
 /projects/windows/vs2019/.vs/browser_fix/v16
+projects/macosx/gmake/.DS_Store
+.vscode/c_cpp_properties.json
